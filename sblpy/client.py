@@ -17,6 +17,7 @@ class SBLApiClient:
   ) -> None:
     self.bot = bot
     self.token = token
+    self.bot.SBLClient = self
 
   @property
   def id(
