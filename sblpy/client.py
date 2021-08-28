@@ -2,6 +2,7 @@ from typing import Union
 from discord import Client, AutoShardedClient
 from discord.ext.commands import Bot, AutoShardedBot
 from .http import Route
+from .error import SBLError
 
 class SBLApiClient:
   def __init__(
@@ -40,7 +41,7 @@ class SBLApiClient:
       )
     }
     route = Route(
-      "GET",
+      "POST",
       "/stats/{id}",
       headers = headers,
       json = payload,
@@ -53,5 +54,49 @@ class SBLApiClient:
         "Ignoring exception in postBotStats, SmartBots server is offline"
       )
       return
+
+    if str(
+      resp.get(
+        "success"
+      )
+    ).lower() == "false":
+        raise SBLError(
+          resp.get(
+            "error"
+          )
+        )
+
+    return resp
+
+  def getBotLikes(
+    self
+  ):
+    headers = {
+      "authorization": str(self.token)
+    }
+    route = Route(
+      "GET",
+      "/liked/{id}",
+      headers = headers,
+      id = self.id
+    )
+    try:
+      resp = route.go().json()
+    except:
+      print(
+        "Ignoring exception in postBotStats, SmartBots server is offline"
+      )
+      return
+
+    if str(
+      resp.get(
+        "success"
+      )
+    ).lower() == "false":
+        raise SBLError(
+          resp.get(
+            "error"
+          )
+        )
 
     return resp
