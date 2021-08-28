@@ -1,6 +1,6 @@
 import requests
 
-frim typing import Any
+from typing import Any
 from urllib.parse import quote as _uriquote
 
 class Route:
