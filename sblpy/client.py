@@ -12,7 +12,7 @@ class SBLApiClient:
       AutoShardedClient,
       Bot,
       AutoShardedBot
-   ]
+    ],
     auth_token: str
   ) -> None:
     self.bot = bot
