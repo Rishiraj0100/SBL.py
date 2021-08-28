@@ -1,13 +1,23 @@
 from discord.ext.commands import Cog
+from .client import *
 
 class SBLCog(
   Cog
 ):
   def __init__(
     self,
-    bot
+    bot,
+    auth: str
   ):
     self.bot = bot
+    if not hasattr(
+      self.bot,
+      "SBLClient"
+    ):
+      SBLApiClient(
+        self.bot,
+        auth
+      )
     self.bot.add_cog(
       self
     )
@@ -24,10 +34,13 @@ class SBLCog(
   ):
     self.bot.SBLClient.postBotStats()
 
-
-def setup(
-  bot
-):
-  SBLCog(
-    bot
-  )
+  @classmethod
+  def setup(
+    cls,
+    bot,
+    auth: str = ""
+  ):
+    cls(
+      bot,
+      auth
+    )
