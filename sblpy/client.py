@@ -84,7 +84,7 @@ class SBLApiClient:
       resp = route.go().json()
     except:
       print(
-        "Ignoring exception in postBotStats, SmartBots server is offline"
+        "Ignoring exception in getBotLikes, SmartBots server is offline"
       )
       return
 
