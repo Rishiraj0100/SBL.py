@@ -39,7 +39,7 @@ if version.endswith(('a', 'b', 'rc')):
         version += '+g' + out.decode('utf-8').strip()
   except Exception:
     pass
-
+print(version)
 setup(
     name="sbl.py",
     version=version,
