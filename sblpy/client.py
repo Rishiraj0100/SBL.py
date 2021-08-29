@@ -5,16 +5,24 @@ from .http import Route
 from .error import SBLError
 
 class SBLApiClient:
+  ""SBLApiClient is the client of https://SmartBots.tk api
+
+  Parameters
+  ------------
+  bot: Union[:class:`~discord.ext.commands.Bot`, :class:`~discord.ext.commands.AutoShardedBot`]
+    Your dpy Bot
+  auth_token: :class:`~str`
+    Bot's auth token of SBL Api
+  """
   def __init__(
     self,
     bot: Union[
-      Client,
-      AutoShardedClient,
       Bot,
       AutoShardedBot
     ],
     auth_token: str
   ) -> None:
+    """Constructor"""
     self.bot = bot
     self.token = auth_token
     self.bot.SBLClient = self
@@ -30,6 +38,7 @@ class SBLApiClient:
   def postBotStats(
     self
   ):
+    """Posts Bot's server count"""
     headers = {
       "authorization": str(
         self.token
@@ -72,6 +81,7 @@ class SBLApiClient:
   def getBotLikes(
     self
   ):
+    """Get likers of bot who liked within 12hrs"""
     headers = {
       "authorization": str(self.token)
     }
