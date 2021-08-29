@@ -1,6 +1,6 @@
 .. currentmodule:: sblpy
 
-SBL.py Modules
+API Reference
 =================
 
 sblpy.client Module
