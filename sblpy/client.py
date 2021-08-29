@@ -5,7 +5,7 @@ from .http import Route
 from .error import SBLError
 
 class SBLApiClient:
-  ""SBLApiClient is the client of https://SmartBots.tk api
+  """SBLApiClient is the client of https://SmartBots.tk api
 
   Parameters
   ------------
