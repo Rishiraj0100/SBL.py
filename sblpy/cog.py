@@ -1,5 +1,6 @@
 from discord.ext.commands import Cog, Bot, AutoShardedBot
 from .client import SBLApiClient
+from typing import Union
 
 class SBLCog(
   Cog
