@@ -66,7 +66,10 @@ class SBLCog(
   @classmethod
   def setup(
     cls,
-    bot,
+    bot: Union[
+      Bot,
+      AutoShardedBot
+    ],
     auth: str = ""
   ):
     """Main method
@@ -89,9 +92,6 @@ class SBLCog(
 
     """
     cls(
-      bot: Union[
-        Bot,
-        AutoShardedBot
-      ],
+      bot,
       auth
     )
