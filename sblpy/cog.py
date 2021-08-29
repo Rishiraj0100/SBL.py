@@ -24,15 +24,27 @@ class SBLCog(
 
   @Cog.listener()
   async def on_guild_join(
-    self
+    self,
+    guild
   ):
     self.bot.SBLClient.postBotStats()
+    print("Posted stats on guild join")
 
   @Cog.listener()
   async def on_guild_remove(
+    self,
+    guild
+  ):
+    self.bot.SBLClient.postBotStats()
+    print("Posted stats on guild leave")
+
+  @Cog.listener()
+  async def on_ready(
     self
   ):
     self.bot.SBLClient.postBotStats()
+    print("Posted stats on ready")
+
 
   @classmethod
   def setup(
