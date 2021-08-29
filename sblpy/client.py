@@ -16,7 +16,7 @@ class SBLApiClient:
     auth_token: str
   ) -> None:
     self.bot = bot
-    self.token = token
+    self.token = auth_token
     self.bot.SBLClient = self
 
   @property
