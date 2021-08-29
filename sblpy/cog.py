@@ -40,6 +40,7 @@ class SBLCog(
     self,
     guild
   ):
+    """Posts server count when bot joins a guild"""
     self.bot.SBLClient.postBotStats()
     print("Posted stats on guild join")
 
