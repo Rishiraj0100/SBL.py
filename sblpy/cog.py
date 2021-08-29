@@ -1,5 +1,5 @@
 from discord.ext.commands import Cog
-from .client import *
+from .client import SBLApiClient
 
 class SBLCog(
   Cog
