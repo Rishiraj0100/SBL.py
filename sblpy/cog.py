@@ -1,14 +1,27 @@
-from discord.ext.commands import Cog
+from discord.ext.commands import Cog, Bot, AutoShardedBot
 from .client import SBLApiClient
 
 class SBLCog(
   Cog
 ):
+  """Cog handler class for :class:`~sblpy.client.SBLApiClient`
+
+  Parameters
+  -----------
+  bot: Union[:class:`~discord.ext.commands.Bot`, :class:`~discord.ext.commands.AutoShardedBot`]
+    Your dpy Bot
+  auth: :class:`~str`
+    Your auth token of SBL Api
+  """
   def __init__(
     self,
-    bot,
+    bot: Union[
+      Bot,
+      AutoShardedBot
+    ],
     auth: str
   ):
+    """Constructor"""
     self.bot = bot
     if not hasattr(
       self.bot,
@@ -35,6 +48,7 @@ class SBLCog(
     self,
     guild
   ):
+    """Posts server count when bot leaves a guild"""
     self.bot.SBLClient.postBotStats()
     print("Posted stats on guild leave")
 
@@ -42,6 +56,7 @@ class SBLCog(
   async def on_ready(
     self
   ):
+    """Posts server count when bot is ready to serve"""
     self.bot.SBLClient.postBotStats()
     print("Posted stats on ready")
 
@@ -52,7 +67,29 @@ class SBLCog(
     bot,
     auth: str = ""
   ):
+    """Main method
+
+    Parameters
+    -----------
+    bot: Union[:class:`~discord.ext.commands.Bot`, :class:`~discord.ext.commands.AutoShardedBot`]
+      Your dpy Bot
+    auth: :class:`~str`
+      Your auth token of SBL Api
+
+    Examples
+    ----------
+    
+    .. code-block:: python3
+
+        from sblpy import SBLCog
+
+        SBLCog.setup(bot, "SBL_AUTH_TOKEN")
+
+    """
     cls(
-      bot,
+      bot: Union[
+        Bot,
+        AutoShardedBot
+      ],
       auth
     )
