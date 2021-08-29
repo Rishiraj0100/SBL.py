@@ -63,7 +63,7 @@ if version.endswith(
     pass
 
 setup(
-  name="sbl.py",
+  name="SBL.py",
   version=version,
   description="No",
   url="https://github.com/Rishiraj0100/SBL.py",
