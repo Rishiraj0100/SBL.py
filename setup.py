@@ -66,6 +66,10 @@ setup(
   name="SBL.py",
   version=version,
   description="No",
+  project_urls={
+    "Documentation": "https://sblpy.readthedocs.io/en/latest/",
+    "Issue tracker": "https://github.com/Rishiraj0100/SBL.py/issues",
+  },
   url="https://github.com/Rishiraj0100/SBL.py",
   author=get(
     'author'
