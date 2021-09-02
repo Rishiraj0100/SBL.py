@@ -60,12 +60,4 @@ Getting likes
 What if You are discord-list.cf User
 then you can simply change the URL
 
-Sync for discord-list.cf
--------------------------
-
-.. code-block:: python3
-
-    import sblpy
-
-    sblpy.http.Route.BASE = "https://discord-list.cf/api/auth"
 
