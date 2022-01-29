@@ -123,5 +123,5 @@ class SBLApiClient:
     self.bot.dispatch("sbl_"+handler,*args)
       
   def on_error(self, func):
-    self.bot.add_listener(func,"on_sbl_error")
-    return func
+    func.__name__ = "on_sbl_error"
+    return self.bot.event(func)
