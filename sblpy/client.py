@@ -31,6 +31,13 @@ class SBLApiClient:
 
   @property
   def logger(self):
+    r"""The logger, used by SBLCog
+
+    To set it use ``SblClient.logger = function``
+    This should must be callable
+
+    Default: :meth:`print`
+    """
     return self.log
 
   @logger.setter
@@ -132,5 +139,17 @@ class SBLApiClient:
     self.bot.dispatch("sbl_"+handler,*args)
 
   def on_error(self, func):
+    """Used to get error, occurred during using SBL
+
+    Examples
+    ---------
+
+    .. code-block:: python3
+
+        @bot.SblClient.on_error
+        async def on_sbl_error(error):
+            print("An error during using SBL:", error)
+
+    """
     func.__name__ = "on_sbl_error"
     return self.bot.event(func)
