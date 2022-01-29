@@ -43,7 +43,7 @@ class SBLCog(
   ):
     """Posts server count when bot joins a guild"""
     self.bot.SBLClient.postBotStats()
-    print("Posted stats on guild join")
+    self.bot.SBLClient.log("Posted stats on guild join")
 
   @Cog.listener()
   async def on_guild_remove(
@@ -52,7 +52,7 @@ class SBLCog(
   ):
     """Posts server count when bot leaves a guild"""
     self.bot.SBLClient.postBotStats()
-    print("Posted stats on guild leave")
+    self.bot.SBLClient.log("Posted stats on guild leave")
 
   @Cog.listener()
   async def on_ready(
@@ -60,7 +60,7 @@ class SBLCog(
   ):
     """Posts server count when bot is ready to serve"""
     self.bot.SBLClient.postBotStats()
-    print("Posted stats on ready")
+    self.bot.SBLClient.log("Posted stats on ready")
 
 
   @classmethod
