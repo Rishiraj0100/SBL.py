@@ -4,6 +4,7 @@ from discord.ext.commands import Bot, AutoShardedBot
 from .http import Route
 from .error import SBLError
 
+
 class SBLApiClient:
   """SBLApiClient is the client of https://SmartBots.tk api
 
@@ -60,21 +61,24 @@ class SBLApiClient:
     try:
       resp = route.go().json()
     except:
-      print(
-        "Ignoring exception in postBotStats, SmartBots server is offline"
+      self.dispatch(
+        "error",
+        "SmartBots server is offline",
       )
-      return
+      return False
 
     if str(
       resp.get(
         "success"
       )
     ).lower() == "false":
-        raise SBLError(
-          resp.get(
-            "error"
-          )
+      self.dispatch(
+        "error",
+        resp.get(
+          "error"
         )
+      )
+      return False
 
     return resp
 
@@ -94,20 +98,30 @@ class SBLApiClient:
     try:
       resp = route.go().json()
     except:
-      print(
-        "Ignoring exception in getBotLikes, SmartBots server is offline"
+      self.dispatch(
+        "error",
+        "SmartBots server is offline",
       )
-      return
+      return False
 
     if str(
       resp.get(
         "success"
       )
     ).lower() == "false":
-        raise SBLError(
-          resp.get(
-            "error"
-          )
+      self.dispatch(
+        "error",
+        resp.get(
+          "error"
         )
+      )
+      return False
 
     return resp
+
+  def dispatch(self, handler, *args):
+    self.bot.dispatch("sbl_"+handler,*args)
+      
+  def on_error(self, func):
+    self.bot.add_listener(func,"on_sbl_error")
+    return func
