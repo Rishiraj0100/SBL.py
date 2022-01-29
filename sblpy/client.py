@@ -121,7 +121,7 @@ class SBLApiClient:
 
   def dispatch(self, handler, *args):
     self.bot.dispatch("sbl_"+handler,*args)
-      
+
   def on_error(self, func):
     func.__name__ = "on_sbl_error"
     return self.bot.event(func)
