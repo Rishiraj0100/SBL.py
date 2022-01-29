@@ -27,6 +27,15 @@ class SBLApiClient:
     self.bot = bot
     self.token = auth_token
     self.bot.SBLClient = self
+    self.log = print
+
+  @property
+  def logger(self):
+    return self.log
+
+  @logger.setter
+  def logger(self, func):
+    self.log = func
 
   @property
   def id(
