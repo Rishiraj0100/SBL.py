@@ -65,7 +65,7 @@ if version.endswith(
 setup(
   name="SBL.py",
   version=version,
-  description="No",
+  description="A Python api wrapper for https://smartbots.tk/ api",
   project_urls={
     "Documentation": "https://sblpy.readthedocs.io/en/latest/",
     "Issue tracker": "https://github.com/Rishiraj0100/SBL.py/issues",
