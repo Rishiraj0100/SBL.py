@@ -9,7 +9,7 @@ Installing
 
 .. code-block:: sh
 
-    pip install -U git+https://github.com/Rishiraj0100/SBL.py.git
+    pip install SBL.py -U
 
 
 Then we will create a Client
@@ -22,6 +22,17 @@ Making a Client
     from sblpy import SBLApiClient
 
     SblClient = SBLApiClient(bot, "YOUR SBL API TOKEN HERE") # Your dpy bot
+
+Then we will make error handler
+
+Making Error Handler
+--------------------
+
+.. code-block:: python3
+
+    @SblClient.on_error
+    async def on_sbl_err(error):
+      print(error)
 
 Then we will post stats
 
@@ -53,11 +64,4 @@ Getting likes
 
 .. code-block:: python3
 
-    print(SblClient.getBotLikes())
-
-
-
-What if You are discord-list.cf User
-then you can simply change the URL
-
-
+    print(bot.SBLClient.getBotLikes())
