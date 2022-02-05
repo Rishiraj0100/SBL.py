@@ -72,18 +72,7 @@ Like Webhook System
 
 This means when someone likes for bot, we will get notified
 
-First setup logging system
-
-.. code-block:: python3
-
-    from sblpy.webhook import logger
-
-    def log_function(type: Literal["test", "like"], data):
-        ...
-
-    logger.log = log_function
-
-Then set environment variable
+First set environment variable
 
 .. code-block:: python3
 
@@ -97,7 +86,10 @@ The if you use Flask
 
     from sblpy.webhook.flask import flask_webhook
 
-    myapp.register_blueprint(flask_webhook)
+    myapp.register_blueprint(flask_webhook, url_prefix="/sbl")
+
+.. note::
+   The passed parameter ``url_prefix`` is the path where the notification hooks should recieve
 
 or if you use Quart
 
@@ -105,10 +97,9 @@ or if you use Quart
 
     from sblpy.webhook.quart import quart_webhook
 
-    myapp.register_blueprint(quart_webhook)
+    myapp.register_blueprint(quart_webhook, url_prefix="/sbl")
 
 or if you use nothing then
-
 
 .. code-block:: python3
 
