@@ -65,3 +65,53 @@ Getting likes
 .. code-block:: python3
 
     print(bot.SBLClient.getBotLikes())
+
+
+Like Webhook System
+--------------------
+
+This means when someone likes for bot, we will get notified
+
+First setup logging system
+
+.. code-block:: python3
+
+    from sblpy.webhook import logger
+
+    def log_function(type: Literal["test", "like"], data):
+        ...
+
+    logger.log = log_function
+
+Then set environment variable
+
+.. code-block:: python3
+
+    import os
+
+    os.environ["SBL_HOOK_TOKEN"] = "BOT'S SBL AUTHORIZATION TOKEN"
+
+The if you use Flask
+
+.. code-block:: python3
+
+    from sblpy.webhook.flask import flask_webhook
+
+    myapp.register_blueprint(flask_webhook)
+
+or if you use Quart
+
+.. code-block:: python3
+
+    from sblpy.webhook.quart import quart_webhook
+
+    myapp.register_blueprint(quart_webhook)
+
+or if you use nothing then
+
+
+.. code-block:: python3
+
+    from sblpy.webhook import flask
+
+    flask.run(in_thread=True,debug=True)
