@@ -6,7 +6,7 @@ from flask import Flask, Blueprint, request, abort, jsonify
 
 flask_webhook = Blueprint("sbl_flask_webhook",__name__)
 
-@flask_webhook.route(config.WEBHOOK_ROUTE, methods=["POST"])
+@flask_webhook.route("/", methods=["POST"])
 def hook_resp():
   try:
     token = os.environ["SBL_HOOK_TOKEN"]
