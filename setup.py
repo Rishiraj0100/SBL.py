@@ -1,4 +1,4 @@
-from setuptools import setup,find_packages
+from setuptools import setup
 import re
 
 def get(
@@ -83,5 +83,8 @@ setup(
   ],
   python_requires=">=3.8",
   keywords="SBL BotList SmartBots",
-  packages=find_packages()
+  packages=[
+    "sblpy",
+    "sblpy.webhook"
+  ]
 )
