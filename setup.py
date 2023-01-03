@@ -67,7 +67,7 @@ setup(
   version=version,
   description="A Python api wrapper for https://smartbots.tk/ api",
   project_urls={
-    "Documentation": "https://sblpy.readthedocs.io/en/latest/",
+    "Documentation": "https://py.docs.smartbots.tk/en/latest/",
     "Issue tracker": "https://github.com/Rishiraj0100/SBL.py/issues",
   },
   url="https://github.com/Rishiraj0100/SBL.py",
@@ -80,9 +80,12 @@ setup(
   classifiers=[
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
   ],
   python_requires=">=3.8",
-  keywords="SBL BotList SmartBots",
+  keywords="SBL SmartBotList SmartBots",
   packages=[
     "sblpy",
     "sblpy.webhook"
