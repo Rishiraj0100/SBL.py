@@ -1,6 +1,6 @@
 braceexpand>=0.1.7
 click>=8.0.1
-git+https://github.com/Rapptz/discord.py@master
+git+https://github.com/Rapptz/discord.py@45d498c1b76deaf3b394d17ccf56112fa691d160
 import_expression>=1.0.0,<2.0.0
-sphinx>=3.5.4
-sphinxcontrib-asyncio
+sphinx==4.4.0
+sphinxcontrib-asyncio==0.3.0
