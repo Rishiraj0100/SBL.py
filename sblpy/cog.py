@@ -32,9 +32,6 @@ class SBLCog(
         self.bot,
         auth
       )
-    self.bot.add_cog(
-      self
-    )
 
   @Cog.listener()
   async def on_guild_join(
@@ -72,7 +69,7 @@ class SBLCog(
     ],
     auth: str = ""
   ):
-    """Main method
+    """Main method, this will add cog to bot
 
     Parameters
     -----------
@@ -88,10 +85,16 @@ class SBLCog(
 
         from sblpy import SBLCog
 
-        SBLCog.setup(bot, "SBL_AUTH_TOKEN")
 
+        # if you are using discord.py 2.0.0+, then
+        SBLCog.setup(bot,"SBL_AUTH_TOKEN")
+        # else
+        SBLCog.setup(bot, "SBL_AUTH_TOKEN")
     """
-    cls(
+    self = cls(
       bot,
       auth
+    )
+    return self.bot.add_cog(
+      self
     )
