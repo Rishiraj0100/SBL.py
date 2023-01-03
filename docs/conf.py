@@ -22,7 +22,7 @@
 from sblpy import __version__
 
 project = 'sblpy'
-copyright = '2021, Rishiraj0100'
+copyright = '2023, Rishiraj0100'
 author = 'Rishiraj0100'
 
 # The short X.Y version
