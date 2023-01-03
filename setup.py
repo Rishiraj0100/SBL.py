@@ -1,6 +1,13 @@
 from setuptools import setup
 import re
 
+
+with open(
+  "README.md",
+  "r"
+) as f:
+  long_description = f.read()
+
 def get(
   arg: str
 ):
@@ -66,6 +73,8 @@ setup(
   name="SBL.py",
   version=version,
   description="A Python api wrapper for https://smartbots.tk/ api",
+  long_description=long_description,
+  long_description_content_type="text/markdown",
   project_urls={
     "Documentation": "https://py.docs.smartbots.tk/en/latest/",
     "Issue tracker": "https://github.com/Rishiraj0100/SBL.py/issues",
