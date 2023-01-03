@@ -87,7 +87,7 @@ class SBLCog(
 
 
         # if you are using discord.py 2.0.0+, then
-        SBLCog.setup(bot,"SBL_AUTH_TOKEN")
+        await SBLCog.setup(bot,"SBL_AUTH_TOKEN")
         # else
         SBLCog.setup(bot, "SBL_AUTH_TOKEN")
     """
