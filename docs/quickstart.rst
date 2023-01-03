@@ -57,9 +57,9 @@ Inbuilt AutoPoster Cog
         "YOUR AUTH TOKEN HERE" # your SBL Api auth token
     )
 
-Then we will get bot likes
+Then we will fetch bot likes
 
-Getting likes
+Fetching likes
 ---------------
 
 .. code-block:: python3
@@ -80,7 +80,7 @@ First set environment variable
 
     os.environ["SBL_HOOK_TOKEN"] = "BOT'S SBL AUTHORIZATION TOKEN"
 
-The if you use Flask
+If you use Flask framework
 
 .. code-block:: python3
 
@@ -91,7 +91,7 @@ The if you use Flask
 .. note::
    The passed parameter ``url_prefix`` is the path where the notification hooks should recieve
 
-or if you use Quart
+or if you use Quart framework
 
 .. code-block:: python3
 
